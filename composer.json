@@ -1,0 +1,33 @@
+{
+  "name": "pharaonic/guides",
+  "description": "Technical PHP ecosystem guides published on pharaonic.dev.",
+  "type": "project",
+  "license": "CC-BY-4.0",
+  "homepage": "https://pharaonic.dev/guides",
+  "support": {
+    "issues": "https://github.com/Pharaonic/guides/issues",
+    "source": "https://github.com/Pharaonic/guides"
+  },
+  "require": {
+    "php": ">=8.3",
+    "opis/json-schema": "^2.4",
+    "symfony/yaml": "^7.4 || ^8.0"
+  },
+  "config": {
+    "platform": {
+      "php": "8.3.0"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "validate-guides": "@php scripts/validate-guides.php",
+    "check": [
+      "@composer validate --strict",
+      "@validate-guides"
+    ]
+  },
+  "scripts-descriptions": {
+    "validate-guides": "Validate guide metadata, structure, links, assets and Markdown.",
+    "check": "Run every repository check."
+  }
+}

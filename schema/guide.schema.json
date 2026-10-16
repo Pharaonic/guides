@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Pharaonic/guides/blob/main/schema/guide.schema.json",
+  "title": "Pharaonic guide front matter",
+  "description": "Metadata at the top of every guides/{category}/{slug}/index.md file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "slug",
+    "description",
+    "category",
+    "tags",
+    "published_at",
+    "status"
+  ],
+  "properties": {
+    "title": {
+      "description": "Page title. The website renders it as the page heading, so the body does not repeat it.",
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 120,
+      "pattern": "^\\S(.*\\S)?$"
+    },
+    "slug": {
+      "description": "Lowercase kebab-case. Must equal the guide's directory name.",
+      "$ref": "#/$defs/kebab",
+      "maxLength": 80
+    },
+    "description": {
+      "description": "Plain-text summary of what the reader will learn. 120-160 characters is recommended.",
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 300,
+      "pattern": "^[^\\r\\n]+$"
+    },
+    "category": {
+      "description": "Ecosystem the guide belongs to. Must equal the guide's parent directory name.",
+      "enum": ["php", "laravel", "livewire", "filament"]
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/kebab",
+        "maxLength": 40
+      }
+    },
+    "related_packages": {
+      "description": "Pharaonic package slugs (php-diff), not Composer names (pharaonic/php-diff).",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(php|laravel|livewire|filament)-[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "published_at": {
+      "$ref": "#/$defs/date"
+    },
+    "updated_at": {
+      "description": "Last meaningful content update. Must not be earlier than published_at.",
+      "$ref": "#/$defs/date"
+    },
+    "status": {
+      "description": "Only published guides are shown on pharaonic.dev in production.",
+      "enum": ["draft", "published"]
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "image": {
+      "description": "Cover image, relative to the guide directory.",
+      "type": "string",
+      "pattern": "^assets/[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)*\\.(svg|webp|png|jpg|jpeg|avif)$"
+    },
+    "keywords": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 15,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 60
+      }
+    },
+    "canonical": {
+      "description": "Only for content first published elsewhere. Omit it to use the pharaonic.dev URL.",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    }
+  },
+  "$defs": {
+    "kebab": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "date": {
+      "description": "A quoted YYYY-MM-DD string. Unquoted YAML dates are parsed as timestamps.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    }
+  }
+}
