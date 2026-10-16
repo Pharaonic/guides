@@ -12,6 +12,7 @@ related_packages:
   - php-diff
 published_at: "2026-10-16"
 status: "published"
+image: "assets/cover.webp"
 ---
 
 Comparing two arrays sounds like a solved problem: PHP ships `array_diff()` and a whole family of related functions. They work well for flat lists of values. Once your data is nested, such as a user profile with an address, an order with line items, or a decoded JSON payload, they stop answering the question you are actually asking: *what changed, and where?*
