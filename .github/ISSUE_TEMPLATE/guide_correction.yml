@@ -1,0 +1,35 @@
+name: Guide correction
+description: Report incorrect, outdated, or unclear content in a guide
+title: "[Correction]: "
+labels:
+  - "type: guide correction"
+  - "status: needs triage"
+body:
+  - type: input
+    id: guide
+    attributes:
+      label: Guide URL or path
+      placeholder: https://pharaonic.dev/guides/php/compare-nested-arrays
+    validations:
+      required: true
+
+  - type: textarea
+    id: statement
+    attributes:
+      label: Incorrect statement
+      description: Quote the sentence or code that is wrong, outdated, or unclear.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or reference
+      description: Link to official documentation, a specification, or a reproducible example when available.

@@ -1,0 +1,42 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: "validate-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  guides:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.5"
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Install validation dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      # Front matter (YAML + schema/guide.schema.json), directory/slug/category
+      # consistency, duplicate URLs, dates, assets, internal links and Markdown.
+      # Each problem is also reported as an annotation on the PR diff.
+      - name: Validate guides
+        run: composer validate-guides

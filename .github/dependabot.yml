@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: weekly
+    groups:
+      validation-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - "*"

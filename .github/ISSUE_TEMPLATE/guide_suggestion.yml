@@ -1,0 +1,38 @@
+name: Guide suggestion
+description: Propose a guide for a real problem developers run into
+title: "[Guide]: "
+labels:
+  - "type: guide suggestion"
+  - "status: needs triage"
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What question or problem should the guide answer? Who runs into it?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - php
+        - laravel
+        - livewire
+        - filament
+    validations:
+      required: true
+
+  - type: textarea
+    id: coverage
+    attributes:
+      label: What the guide should cover
+      description: Approaches, edge cases, or trade-offs worth explaining.
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Existing resources
+      description: Official documentation or articles that cover this partially, and what they miss.
