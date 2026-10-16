@@ -18,6 +18,9 @@ Comparing two arrays sounds like a solved problem: PHP ships `array_diff()` and 
 
 This guide starts with what the native functions do well, shows exactly where they break down, builds a small recursive comparison you can use today, and then covers the edge cases that decide whether a homemade solution is enough.
 
+> **Quick Answer / TL;DR:**
+> For flat PHP arrays, `array_diff()` is usually enough. For nested structures where you need added, removed, and modified values with their exact paths, use a recursive comparison or a dedicated diff abstraction.
+
 ## What array_diff() Does Well
 
 [`array_diff()`](https://www.php.net/manual/en/function.array-diff.php) returns the values of the first array that do not appear in any of the others:

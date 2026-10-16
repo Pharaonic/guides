@@ -93,6 +93,17 @@ Every guide should:
 
 Avoid keyword stuffing, marketing language, copying package documentation, near-duplicate guides, and benchmarks or performance claims you cannot back with evidence.
 
+### Quick Answer
+
+When a guide answers a clear technical question, consider adding a Quick Answer right after the introduction and before the first `##` section, so a reader can get the answer in a few seconds:
+
+```markdown
+> **Quick Answer / TL;DR:**
+> A concise, direct answer to the main technical question.
+```
+
+It is recommended where it helps, not required. Keep it to one to three short sentences that answer the reader's question directly, including when the native solution is enough. It is not a place for marketing copy or a package pitch, and it should not repeat the conclusion. Do not end lines with trailing spaces for a line break; the validator rejects trailing whitespace.
+
 ### Markdown
 
 Use GitHub-flavored Markdown: headings, lists, links, tables, blockquotes, inline code, and fenced code blocks. Every fenced block needs a language identifier (`php`, `bash`, `text` for output). Never use screenshots of code.
