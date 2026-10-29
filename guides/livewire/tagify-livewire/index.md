@@ -13,7 +13,7 @@ tags:
 related_packages:
   - livewire-tagify
 published_at: "2026-10-29"
-status: "draft"
+status: "published"
 image: "assets/cover.webp"
 keywords:
   - tagify livewire 4
