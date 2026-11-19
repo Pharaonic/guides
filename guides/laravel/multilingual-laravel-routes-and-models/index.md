@@ -39,8 +39,6 @@ This guide builds a small English/Arabic product catalogue. We start with Larave
 
 > **Quick Answer / TL;DR:** Use Laravel's `app.locale` for the active language, `app.fallback_locale` for missing display text, and `lang/` files for interface strings. A localized website also needs URL routing and locale-aware model lookup; database content needs explicit per-locale storage. The two Pharaonic packages address those different concerns, but the model must explicitly connect translated slugs to localized route binding.
 
-> **Version scope (November 20, 2026):** The code below targets the redesigned **Laravel 13 / PHP >=8.3 <8.6** implementations on the packages' `develop` branches. Keep this guide in draft until compatible 13.x releases are tagged and installation/integration tests pass.
-
 ## Define the Language Contract Before Writing Routes
 
 Our catalogue needs two web URLs for a product, a stable API URL, and a deliberate rule for missing translations.
