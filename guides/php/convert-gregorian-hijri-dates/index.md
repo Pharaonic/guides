@@ -13,6 +13,7 @@ related_packages:
   - php-hijri
 published_at: "2026-11-20"
 status: "published"
+image: "assets/cover.webp"
 keywords:
   - php hijri date
   - convert gregorian to hijri php
