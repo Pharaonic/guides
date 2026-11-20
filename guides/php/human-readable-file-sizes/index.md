@@ -12,6 +12,7 @@ related_packages:
   - php-readable
 published_at: "2026-11-20"
 status: "published"
+image: "assets/cover.webp"
 keywords:
   - php human readable file size
   - php format bytes
